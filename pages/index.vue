@@ -9,5 +9,8 @@
 </template>
 
 <script setup lang="ts">
-  const pages = [{ id: 1, name: "Counter", path: "/counter" }];
+  const pages = [
+    { id: 1, name: "Counter", path: "/counter" },
+    { id: 2, name: "Blogs", path: "/blogs" },
+  ];
 </script>
