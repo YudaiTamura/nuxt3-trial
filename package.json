@@ -5,24 +5,36 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "husky install && nuxt prepare",
     "typecheck": "nuxt typecheck",
     "lint": "eslint --ext .ts,.js,.vue ."
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": "yarn run lint",
+    "*.{js,ts,vue,md,json}": "prettier --write"
+  },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.3.0"
+  },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
     "@vue/eslint-config-prettier": "^7.0.0",
     "eslint": "^8.33.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.9.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
     "nuxt": "^3.1.0",
     "prettier": "^2.8.3",
     "typescript": "^4.9.5",
     "vue-tsc": "^1.0.24"
-  },
-  "dependencies": {
-    "@nuxtjs/tailwindcss": "^6.3.0"
   }
 }
